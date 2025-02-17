@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>MirrorLine - {{title}}</title>
+    <meta name="description" content="MirrorLine 是一个免费开源的代理浏览器，你可以在这里搜索站点并通过代理访问他！">
+    <meta name="keywords" content="镜像,mirror,browser,search,learn,中文,代理,proxy">
+    <link rel="stylesheet" href="/public/css/milligram.min.css">
+    <link rel="stylesheet" href="/public/css/index.css">
+    <script src="/public/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/public/css/message.min.css">
+    <script src="/public/js/message.min.js"></script>
+    <script src="/public/js/finicounter.js"></script>
+    <script>
+      $( document ).ready( () => {
+        $( ".menu" ).click( () => {
+          $( ".sidebar" ).toggleClass( "sidebar-show" )
+        })
+        $( "#back" ).click( () => {
+          window.location.href = "/"
+        })
+        Qmsg.success( "欢迎喵！" )
+      })
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+      <span class="menu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </span>
+      <h4 class="title" style="display: inline-block" id="back">MirrorLine</h4>
+      <h4 class="title float-right" onclick="(window.location.href = 'https://github.com/Love-Kogasa/mirrorline2')">
+        <img src="/public/img/github.png" style="width: 1.9ch; margin-bottom: -0.3ch;">
+        Github
+      </h4>
+    </div><div class="sidebar">
+      <br>
+      <h2 class="title">Menu</h2>
+      <a class="li" href="https://github.com/Love-Kogasa/mirrorline2/blob/main/api.md">- API (Use SearXNG Core)</a><br>
+      <a class="li" href="https://github.com/Love-Kogasa/MirrorLine/blob/main/LICENSE">- License (MIT)</a>
+      <hr>
+      <h3 class="title">免责声明</h3>
+      <p class="li">本站点仅供各位大佬学习与使用，您在您查找到的站点内所做的行为与我们无关，需要您自行承担后果<br>请在相关地区法律允许情况下使用本站</p>
+      <hr>
+      <h3 class="title">技术使用</h3>
+      <a class="li" href="https://gitee.com/leisureLXY/qmsg">- Message.js</a>
+      <a class="li" href="https://jquery.com">- jQuery.js</a><br>
+      <a class="li" href="https://milligram.io/">- Milligram</a>
+      <a class="li" href="https://finicounter.eu.org/">- FiniCounter</a><br>
+      <a class="li" href="https://t.mwm.moe">- 随机二次元</a>
+      <a class="li" href="https://searx.bndkt.io/">- SearXNG</a>
+      <hr>
+      <a class="li">项目Github仓库</a><br>
+      <span class="li">Copyright 2024 <a href="https://github.com/Love-Kogasa">@Love-Kogasa</a></span>
+      <div class="li">访问者: <span id="finicount_views"></span></div>
+      <div class="li">如果显示<img src="/public/img/site.png" class="icon">就是无法正常加载ico喵w</div>
+    </div><br><br>
+    {{body}}
+  </body>
+</html>

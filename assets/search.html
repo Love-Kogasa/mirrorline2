@@ -1,0 +1,40 @@
+<center>
+  <script src="/public/js/quick-hash.js"></script>
+  <style>
+    li { margin: 0px; }
+    a {
+      display: line-height;
+      max-width: 30ch;
+      overflow-x: auto;
+    }
+  </style>
+  <form method="GET" action="/search" style="margin-bottom: -1.5ch;">
+    <input type="hidden" id="p" value="1" name="p">
+    <input type="hidden" id="type" value="default" name="type">
+    <input type="text" id="search" placeholder="Github" style="width: 70vw" name="search">
+    <!-- 自定义类不生效:( -->
+    <input type="submit" class="button btn" value="搜索" style="background-color: #000;" id="go">
+    <div align="left" style="margin-left: 4vw; margin-top: -1.5ch; margin-bottom: 0.5ch;">
+      <input type="checkbox" id="safe" name="safe" value="safe"> 安全搜索
+    </div>
+    </form>
+    <script src="/public/js/index.js"></script>
+    <div id="contain">
+      <div align="left" style="margin-left: 3.5vw;">
+        <a id="sites">网页</a> | <a id="files">文件</a> | <a>凑数</a> | <a>awa</a>
+      </div>
+      <div class="card">
+        <h4 class="title">搜索建议</h4> <a>(您是不是在找?)</a>
+        <ul style="margin: 0px; margin-left: 2ch;" id="suggestions">
+          {{sugg}}
+        </ul>
+      </div>
+      <div id="contains">
+        {{datas}}
+      </div>
+    </div>
+  </div>
+  <div align="right" style="margin-right: 4vw;">
+    <span id="golink"></span>
+  </div>
+</center>

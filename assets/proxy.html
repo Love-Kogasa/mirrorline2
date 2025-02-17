@@ -1,0 +1,23 @@
+<center>
+  <script>
+    $( document ).ready(() => {
+      $( "#quickly" ).find( "a" ).each(function(){
+        $(this).click(() => {
+          $( "#url" ).val( $(this).attr( "for" ) )
+        })
+      })
+      $( "button" ).click(() => {
+        document.cookie = "url=" + $( "#url" ).val()
+        window.location.href = "/proxysc/"
+      })
+    })
+  </script>
+  <h2 class="title">The Proxy</h2>
+  <input type="text" id="url" placeholder="https://example.com">
+  <button class="btn">让我看看</button><br>
+  <div id="quickly">
+    <a for="https://www.google.com">Google</a> <a for="https://github.com">Github</a> <a for="https://youtobe.com">YouTube</a>
+  </div>
+  <br>
+  <div>由MirrorLine提供的网页代理站！<br>请务必在本地法律允许情况下使用本站点！<br>>_<</div>
+</center>

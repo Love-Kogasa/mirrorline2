@@ -1,0 +1,47 @@
+<div class="main">
+  <script>
+    $( document ).ready( () => {
+      $( "#quickly" ).find( "a" ).each(function(){
+        var link = $( this )
+        link.click(() => {
+          document.cookie = "url=" + link
+          window.location.href = "/proxyfhome/"
+        })
+      })
+      $.getJSON( "https://api.github.com/repos/Love-Kogasa/MirrorLine/contributors", ( data ) => {
+        data.forEach( ( value ) => {
+          $( "#contributors" ).append( $( `<img src="${value.avatar_url}" class="avatar">` ) )
+        })
+      })
+    })
+  </script>
+  <style>
+    body {
+      background-image: url( "https://t.mwm.moe/pc" );
+      background-size: auto 100vh;
+      background-position: center 0px;
+    }
+    .avatar {
+      width: 7ch;
+      height: 7ch;
+      border-radius: 50%;
+    }
+  </style>
+  <center>
+    <h1 class="title">MirrorLine</h1>
+    <form method="GET" action="/search">
+      <input type="text" id="search" placeholder="Github" name="search">
+      <input type="submit" class="button btn" value="搜索" style="background-color: #000;">
+      <input type="hidden" value="1" name="p">
+    </form>
+    <div id="quickly">
+      <a for="https://github.com"><img src="/public/img/github.png" class="icon"> Github</a>
+      <a for="https://pixiv.net"><img src="https://pixiv.moe/assets/favicon.ico?v=2024.02" class="icon"> Pixiv</a><br>
+      <a for="https://www.google.com/"><img src="/public/img/google.png" class="icon"> Google</a>
+    </div><br>
+    <p>简单&快捷 的访问Github等您可能无法访问的网站！<br><font size=2>Copyright 2025 <a href="https://bgithub.xyz/Love-Kogasa">@Love-KogasA</a></font></p>
+    <br>
+    <h4 class="title">贡献者</h4>
+    <div id="contributors"></div><br>
+  </center>
+</div>
