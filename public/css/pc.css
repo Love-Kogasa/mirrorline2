@@ -1,0 +1,42 @@
+/* pc.css */
+@media screen and (min-width: 1024px) {
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+  
+    .main {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* 子元素在纵向分散 */
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      min-height: 60vh; /* 保证最小高度 */
+      padding: 20px;
+      box-sizing: border-box;
+    }
+  
+    .main > center {
+      text-align: center;
+    }
+  
+    /* 给每个子元素之间添加间距 */
+    .main > * {
+      margin-bottom: 15px; /* 让每个子元素有适当间距 */
+    }
+  
+    /* 最后一个子元素不需要下边距 */
+    .main > *:last-child {
+      margin-bottom: 0;
+    }
+  
+    /* 可选：调整容器的最大高度，避免过度拉伸 */
+    .main {
+      max-height: 80vh; /* 根据需要调整 */
+    }
+  }
+  
