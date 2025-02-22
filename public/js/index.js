@@ -41,9 +41,9 @@ $( document ).ready( () => {
   $( "#contains" ).find( ".card" ).each(function(){
     var card = $(this)
     card.click(() => {
-      var to = new URL(card.find( "a" ).text().split( " > " ).join( "/" ))
-      document.cookie = "url=" + to.origin
-      window.location.href = "/proxy" + hash( new Date()) + to.pathname + to.search
+      var to = card.find( "a" ).text().split( " > " ).join( "/" )
+      $( "#url" ).val( to )
+      document.getElementById( "urlform" ).submit()
     })
   })
 })
