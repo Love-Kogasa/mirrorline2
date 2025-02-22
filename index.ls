@@ -3,11 +3,8 @@ require! fs
 require! url
 require! path
 require! "./engine"
-require! "cookie-parser"
-proxy = require "express-http-proxy"
 
 app = express()
-app.use cookie-parser!
 # 这个目录是给vercel读的
 app.use "/_pages", express.static "#{__dirname}/assets"
 app.use "/public", express.static "#{__dirname}/public"
@@ -60,20 +57,12 @@ app.get "/search", (req,res) ->
     page = page.replace "{{datas}}", data.join "\n"
   res.send page
 app.all "/proxy*", (req, res) ->
-  if req.cookies.url
-    # {path: proxyPath} = url.parse(req.cookies.url)
-    req.url = "/" + req.url.split( "/" ).slice(2).join "/"
-    proxy(req.cookies.url) req, res, -> void
-  else
-    res.send loadBody( "assets/proxy.html", "Proxy" )
+  res.send loadBody( "assets/proxy.html" )
 app.use (req,res) ->
-  if req.cookies.url
-    proxy( req.cookies.url ) req, res, -> void
-  else
-    res
-      ..status 404
-      ..send loadBody( "assets/404.html", "404Error" )
-      ..end!
+  res
+    ..status 404
+    ..send loadBody( "assets/404.html", "404Error" )
+    ..end!
 port = parseInt(Math.floor((Math.random()*1000)).toString().padEnd(4, "0"))
 if port === 3000 then port += 1
 app.listen (process.env.PORT or port), ->
