@@ -1,5 +1,11 @@
 <center>
-  <script src="/public/js/quick-hash.js"></script>
+  <!-- see proxysite.pro -->
+  <form name="urlform" id="urlform" action="https://proxysite.pro/servers/" method="POST" style="display: none;">
+    <div class="input-group input-group-lg mb-3 shadow">
+    <input type="text" name="url" id="url" class="form-control border border-secondary" aria-label="Enter URL here..." value placeholder="Enter URL here..." autocomplete="off" autocorrect="off" required>
+    <button class="btn btn-outline-secondary bg-warning" type="submit"><svg class="pro d-sm-none" width="1em" height="1em"><use xlink:href="#svg-globe"></use></svg><span class="d-none d-sm-inline-block">GO</span></button>
+    </div>
+  </form>
   <style>
     li { margin: 0px; }
     a {
