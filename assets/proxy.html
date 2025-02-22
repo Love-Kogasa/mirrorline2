@@ -1,14 +1,16 @@
 <center>
+  由于我把MirrorLine的bug越写越多(捂脸)，因此我决定使用别人现成的Proxy服务了，所以现在的proxy使用的是 <a href="https://proxysite.pro/">ProxySite</a> 提供的Proxy服务<br>
+<!--
+  <script src="/public/js/quick-hash.js"></script>
   <script>
     $( document ).ready(() => {
-      $( "#quickly" ).find( "a" ).each(function(){
-        $(this).click(() => {
-          $( "#url" ).val( $(this).attr( "for" ) )
-        })
-      })
       $( "button" ).click(() => {
-        document.cookie = "url=" + $( "#url" ).val()
-        window.location.href = "/proxysc/"
+        try {
+          var url = new URL( $( "#url" ).val() )
+          window.location.href = "/proxysc" + hash( new Date() + "/" + url.protocol.slice(0,-1) + "/" + url.hostname + url.pathname + url.search
+        } catch( err ){
+          Qmsg.error( "URL格式错误!" )
+        }
       })
     })
   </script>
@@ -16,8 +18,9 @@
   <input type="text" id="url" placeholder="https://example.com">
   <button class="btn">让我看看</button><br>
   <div id="quickly">
-    <a for="https://www.google.com">Google</a> <a for="https://github.com">Github</a> <a for="https://youtobe.com">YouTube</a>
+    <a for="/proxygg/https/google.com/">Google</a> <a for="/proxygh/https/github.com/">Github</a> <a for="/proxyyt/https/youtobe.com/">YouTube</a>
   </div>
   <br>
   <div>由MirrorLine提供的网页代理站！<br>请务必在本地法律允许情况下使用本站点！<br>>_<</div>
+-->
 </center>
